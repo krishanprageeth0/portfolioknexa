@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="V.K. Krishan Prageeth Kumara | Personal Portfolio - Founder & Lead Developer at Knexa System, Senior IT and Finance Coordinator, and Software Engineer. Designing custom software and modern web experiences.">
+    <meta name="keywords" content="V.K. Krishan Prageeth Kumara, Software Engineer, Knexa System, Sri Lanka, Full-Stack Developer, POS Systems, UI/UX Designer, Laravel, Next.js, WordPress">
+    <meta name="author" content="V.K. Krishan Prageeth Kumara">
+    <title>V.K. Krishan Prageeth Kumara | Personal Portfolio</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Canvas Particle Background -->
+    <canvas id="canvas-particles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <!-- Mesh Gradient & Texture Wrapper -->
+    <div class="bg-wrapper"></div>
+
+    <!-- Header / Navigation Bar -->
+    <header>
+        <nav class="navbar glass-panel">
+            <a href="#hero" class="navbar-brand">
+                <img src="./logo 1.png" alt="Knexa Logo" class="navbar-logo">
+                <span class="brand-text">KNEXA SYSTEM</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#timeline" class="nav-link">Experience</a></li>
+                <li><a href="#portfolio" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+            
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content reveal">
+            <span class="hero-welcome">Welcome to my space</span>
+            <h1 class="hero-title">
+                Hi, I'm <br><span>V.K. Krishan Prageeth Kumara</span>
+            </h1>
+            <div class="hero-typing">
+                I am a <span class="typed-text"></span><span class="typing-cursor">|</span>
+            </div>
+            <p class="hero-desc">
+                A results-oriented Software Engineering undergraduate and Senior IT & Finance Coordinator. Expert in WordPress theming, modern web architectures, and crafting intuitive UI/UX systems.
+            </p>
+            <div class="hero-ctas">
+                <a href="#portfolio" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+                <a href="./Krishan-Resume.pdf" target="_blank" class="btn btn-secondary">Download CV <i class="fas fa-file-pdf"></i></a>
+            </div>
+        </div>
+        <div class="hero-visual reveal">
+            <div class="photo-frame anti-gravity-float">
+                <div class="photo-container">
+                    <img src="./photo.png" alt="V.K. Krishan Prageeth Kumara" class="profile-photo">
+                    <div class="photo-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="section-header reveal">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Fusing architectural logic with visual creativity to drive digital success.</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-card glass-panel reveal">
+                <h3 class="about-highlight">Bridging IT Operations, Software Engineering & Creative Design</h3>
+                <p class="about-text">
+                    I am a Software Engineering undergraduate at <strong>Saegis Campus</strong> (expecting completion in 2026), with a unique foundation that blends technical engineering with creative aesthetics. Being a Royal College, Colombo 07 alumnus (Arts Stream, with A's in Media & Dancing), I bring a human-centric perspective to Human-Computer Interaction (HCI) and visual wireframing.
+                </p>
+                <p class="about-text">
+                    Currently, I serve as the <strong>Senior Coordinator (IT & Finance)</strong> at Solution Associates (Pvt) Ltd, managing enterprise digital architectures and financial database workflows. As the founder of <strong>Knexa System</strong>, I lead projects from Figma prototyping to fully operational software deployments.
+                </p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">8+</span>
+                        <span class="stat-label">Web Systems Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">BSc</span>
+                        <span class="stat-label">Hons Candidate</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-features reveal">
+                <div class="feature-box glass-panel">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div>
+                        <h4 class="feature-title">Full-Stack Development</h4>
+                        <p class="feature-desc">Structuring scalable system backends in PHP/Laravel and fast interactive frontends using React and Next.js.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-box glass-panel">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <div>
+                        <h4 class="feature-title">Enterprise POS Architecture</h4>
+                        <p class="feature-desc">Building secure, cloud-enabled inventory management and reporting engines to streamline business workflows.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-box glass-panel">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div>
+                        <h4 class="feature-title">UI/UX & Brand Design</h4>
+                        <p class="feature-desc">Wireframing immersive digital journeys in Figma and producing cohesive logos and vector marketing materials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section (Floating Grid) -->
+    <section id="skills">
+        <div class="section-header reveal">
+            <h2 class="section-title">Tech Stack</h2>
+            <p class="section-subtitle">The tools and frameworks I use to bring complex digital systems to life.</p>
+        </div>
+        
+        <div class="skills-container reveal">
+            <div class="skills-grid">
+                <!-- Next.js -->
+                <div class="skill-card glass-panel drift-1">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-nextjs">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.275 18.275l-6.195-7.945v7.945h-1.68v-10.455h1.68l6.195 7.945v-7.945h1.68v10.455h-1.68z"/>
+                    </svg>
+                    <span class="skill-name">Next.js</span>
+                </div>
+                
+                <!-- Laravel -->
+                <div class="skill-card glass-panel drift-2">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-laravel">
+                        <path d="M21.9 14.15l-9-5.2a1.8 1.8 0 0 0-1.8 0l-9 5.2a1.8 1.8 0 0 0-.9 1.56v1.44a1.8 1.8 0 0 0 .9 1.56l9 5.2a1.8 1.8 0 0 0 1.8 0l9-5.2a1.8 1.8 0 0 0 .9-1.56v-1.44a1.8 1.8 0 0 0-.9-1.56zM12 18.84l-7.3-4.2 7.3-4.2 7.3 4.2-7.3 4.2zM21.9 4.15l-9-5.2a1.8 1.8 0 0 0-1.8 0l-9 5.2a1.8 1.8 0 0 0-.9 1.56v5.44a1.8 1.8 0 0 0 .9 1.56l9 5.2a1.8 1.8 0 0 0 1.8 0l9-5.2a1.8 1.8 0 0 0 .9-1.56V5.71a1.8 1.8 0 0 0-.9-1.56zM12 8.84l-7.3-4.2 7.3-4.2 7.3 4.2-7.3 4.2z"/>
+                    </svg>
+                    <span class="skill-name">Laravel</span>
+                </div>
+                
+                <!-- PHP -->
+                <div class="skill-card glass-panel drift-3">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-php">
+                        <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.12 7.74c-.03.11-.08.2-.15.26-.06.07-.15.1-.25.1h-1.63c-.15 0-.27-.05-.35-.14-.08-.09-.12-.22-.12-.39V6.02h.67v1.07c0 .09.02.16.07.21.05.04.13.06.23.06h.79c.1 0 .17-.02.21-.06.04-.04.06-.11.06-.21V6.02h.67v1.72zm-3.23.04c-.08.08-.18.15-.31.2-.13.05-.27.08-.42.08H12v-2h.93c.18 0 .34.03.49.09.15.06.26.15.34.27.08.12.12.27.12.44 0 .22-.05.41-.16.55-.1.14-.24.24-.41.3v.01c.21.06.37.17.48.33.11.16.16.36.16.59 0 .18-.04.35-.13.49s-.21.25-.37.33c-.16.08-.34.12-.55.12H12v-.67h.95c.16 0 .28-.04.37-.11.09-.07.13-.18.13-.33 0-.15-.04-.26-.13-.33-.09-.07-.22-.11-.38-.11H12V6.69h1.16c.14 0 .25-.03.33-.1.08-.07.12-.17.12-.31 0-.14-.04-.24-.12-.3-.08-.06-.19-.09-.33-.09H12v-.67h1.16c.21 0 .4.04.57.12.17.08.3.19.39.34s.13.33.13.54c0 .28-.08.5-.23.67-.15.17-.37.28-.65.33v.01zm-3.55.06H9.27c-.15 0-.27-.05-.35-.14-.08-.09-.12-.22-.12-.39V6.02h.67v1.07c0 .09.02.16.07.21.05.04.13.06.23.06h.79c.1 0 .17-.02.21-.06.04-.04.06-.11.06-.21V6.02h.67v1.72z"/>
+                    </svg>
+                    <span class="skill-name">PHP</span>
+                </div>
+                
+                <!-- JavaScript -->
+                <div class="skill-card glass-panel drift-4">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-js">
+                        <path d="M0 0h24v24H0V0zm21.6 19.2c0-1.8-1.05-2.7-3.15-2.7-1.05 0-1.8.3-2.25.75l1.05 1.65c.3-.3.6-.45.9-.45.6 0 .9.3.9.9v4.5c0 .6-.3.9-.9.9-.6 0-.9-.3-.9-.9V18h-2.4v4.5c0 1.8 1.05 2.7 3.15 2.7 2.1 0 3.15-.9 3.15-2.7v-3.3zm-7.65-2.7h-2.4v9c0 .6-.3.9-.9.9s-.9-.3-.9-.9v-9H7.35v11.7H9.7v-2.7h2.4v2.7h2.25V16.5z"/>
+                    </svg>
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                
+                <!-- MySQL -->
+                <div class="skill-card glass-panel drift-5">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-mysql">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.5 16.5c-1.5 1.5-3.5 2-4.5 2s-3-.5-4.5-2c-.5-.5-.5-1.5 0-2s1.5-.5 2 0c1 1 2 1.5 2.5 1.5s1.5-.5 2.5-1.5c.5-.5 1.5-.5 2 0s.5 1.5 0 2zM12 6.5c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2z"/>
+                    </svg>
+                    <span class="skill-name">MySQL</span>
+                </div>
+                
+                <!-- WordPress -->
+                <div class="skill-card glass-panel drift-6">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-wp">
+                        <path d="M12.158 12.786l-2.698 7.84a11.905 11.905 0 0 1-4.708-4.471l6.196-16.94c.159.297.27.568.27.818 0 .428-.198.832-.428 1.258l-3.324 6.273 4.692 5.222zm-7.79 3.037L1.644 8.784a11.895 11.895 0 0 0 2.724 7.039zm9.056.273l2.848-8.225.568 1.637c.307.822.428 1.488.428 2.083a4.26 4.26 0 0 1-.954 2.686L13.424 16.1zm-8.87.545c1.554 4.318 5.676 7.355 10.457 7.355 1.137 0 2.239-.16 3.285-.455L12.593 11.5l-4.227 12.182zm14.542-8.545a11.93 11.93 0 0 0 .864-4.455c0-1.841-.659-3.114-1.227-4.103a11.97 11.97 0 0 0-.464 6.307l.827 2.251z"/>
+                    </svg>
+                    <span class="skill-name">WordPress</span>
+                </div>
+                
+                <!-- Figma -->
+                <div class="skill-card glass-panel drift-7">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="color-figma">
+                        <path d="M12 0C8.687 0 6 2.687 6 6v3c0 3.313 2.687 6 6 6h3c3.313 0 6-2.687 6-6V6c0-3.313-2.687-6-6-6h-3zm0 3c1.657 0 3 1.343 3 3s-1.343 3-3 3h-3V6c0-1.657 1.343-3 3-3zm0 6V6h3c1.657 0 3 1.343 3 3s-1.343 3-3 3h-3zm-6 9c0 1.657 1.343 3 3 3h3v-6H9c-1.657 0-3 1.343-3 3zm6 3c-1.657 0-3-1.343-3-3v-3h3v6zm6-6c0-1.657-1.343-3-3-3h-3v6h3c1.657 0 3-1.343 3-3z"/>
+                    </svg>
+                    <span class="skill-name">Figma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="timeline">
+        <div class="section-header reveal">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">A trace of my corporate coordinates, software internships, and entrepreneurial milestones.</p>
+        </div>
+        
+        <div class="timeline reveal">
+            <!-- Item 1: Knexa System -->
+            <div class="timeline-item timeline-left">
+                <div class="timeline-card glass-panel">
+                    <span class="timeline-date">2026 - Present</span>
+                    <h3 class="timeline-role">Founder & Lead Developer</h3>
+                    <div class="timeline-company">
+                        <img src="./logo 1.png" alt="Knexa Logo" class="timeline-company-logo">
+                        Knexa System
+                    </div>
+                    <p class="timeline-desc">
+                        Bootstrapped a digital service agency providing enterprise WordPress sites, custom e-commerce shops, automated retail POS configurations, and vector branding material. Leading long-term digital growth and platform coordination.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Item 2: Solution Associates -->
+            <div class="timeline-item timeline-right">
+                <div class="timeline-card glass-panel">
+                    <span class="timeline-date">Dec 2025 - Present</span>
+                    <h3 class="timeline-role">Senior Coordinator (IT & Finance)</h3>
+                    <div class="timeline-company">
+                        Solution Associates (Pvt) Ltd
+                    </div>
+                    <ul class="timeline-desc" style="list-style-type: none; padding-left: 0;">
+                        <li>• <strong>Systems Integration:</strong> Coordinate IT infrastructure with financial reporting systems for debt recovery and analytics.</li>
+                        <li>• <strong>Technical Support:</strong> Supervise IT department operations to guarantee business continuity.</li>
+                        <li>• <strong>Optimization:</strong> Design digital pipelines that streamline operations between administrative and tech teams.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Item 3: Fuchsius (Private) Limited -->
+            <div class="timeline-item timeline-left">
+                <div class="timeline-card glass-panel">
+                    <span class="timeline-date">Feb 2025 - Aug 2025</span>
+                    <h3 class="timeline-role">Software Developer Intern</h3>
+                    <div class="timeline-company">
+                        Fuchsius (Private) Limited
+                    </div>
+                    <ul class="timeline-desc" style="list-style-type: none; padding-left: 0;">
+                        <li>• <strong>App Engineering:</strong> Developed, tested, and deployed features for core software products.</li>
+                        <li>• <strong>Debugging & QA:</strong> Collaborated with senior engineers to troubleshoot database errors and optimize script latency.</li>
+                        <li>• <strong>Standards:</strong> Wrote modular code using Git version control and participated in peer reviews.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="education-certifications">
+        <div class="section-header reveal">
+            <h2 class="section-title">Education & Credentials</h2>
+            <p class="section-subtitle">Academic degrees and certified capabilities supporting my professional competencies.</p>
+        </div>
+        
+        <div class="about-grid reveal">
+            <!-- Education Box -->
+            <div class="about-card glass-panel">
+                <h3 class="about-highlight" style="font-size: 1.35rem; margin-bottom: 25px;"><i class="fas fa-graduation-cap" style="color: var(--accent-cyan); margin-right: 10px;"></i> Education History</h3>
+                
+                <div style="margin-bottom: 25px; border-left: 2px solid var(--accent-cyan); padding-left: 15px;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-primary);">BSc (Hons) in Software Engineering</h4>
+                    <span style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600;">2022 - 2026 (Expected)</span>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 5px;">Saegis Campus, Kohuwala</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">Relevant coursework: HCI, Interaction Design, Frontend Development, SDLC</p>
+                </div>
+                
+                <div style="border-left: 2px solid var(--accent-purple); padding-left: 15px;">
+                    <h4 style="font-size: 1.1rem; color: var(--text-primary);">G.C.E. Advanced Level (Arts Stream)</h4>
+                    <span style="font-size: 0.85rem; color: var(--accent-purple); font-weight: 600;">2017 - 2019</span>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 5px;">Royal College, Colombo 07</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">Media & Communication Studies: A | Dancing: A | Drama: C</p>
+                </div>
+            </div>
+            
+            <!-- Certifications Box -->
+            <div class="about-features" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="feature-box glass-panel" style="padding: 20px;">
+                    <div class="feature-icon-wrapper" style="width: 44px; height: 44px; font-size: 1.25rem;">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div>
+                        <h4 class="feature-title" style="font-size: 1rem; margin-bottom: 4px;">Comprehensive UI/UX Designer</h4>
+                        <p class="feature-desc" style="font-size: 0.85rem;">FSD Academy - Training in user research, wireframing, and usability testing.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-box glass-panel" style="padding: 20px;">
+                    <div class="feature-icon-wrapper" style="width: 44px; height: 44px; font-size: 1.25rem;">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <div>
+                        <h4 class="feature-title" style="font-size: 1rem; margin-bottom: 4px;">Figma Design Course Certificate</h4>
+                        <p class="feature-desc" style="font-size: 0.85rem;">DP Education - Professional vector layouts, component states, and interactive prototyping.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-box glass-panel" style="padding: 20px;">
+                    <div class="feature-icon-wrapper" style="width: 44px; height: 44px; font-size: 1.25rem;">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div>
+                        <h4 class="feature-title" style="font-size: 1rem; margin-bottom: 4px;">QA Manual Testing Certification</h4>
+                        <p class="feature-desc" style="font-size: 0.85rem;">Validating code releases, compiling trace matrices, and reporting software defects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Featured Work Section -->
+    <section id="portfolio">
+        <div class="section-header reveal">
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-subtitle">Explore a collection of dynamic web applications, e-commerce stores, and custom portals I have built.</p>
+        </div>
+        
+        <div class="portfolio-grid reveal">
+            <!-- Project 1: Aether Travels -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./aether_travels.png" alt="Aether Travels" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">HTML5/CSS3</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">GSAP</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Aether Travels</h3>
+                        <p class="portfolio-card-desc">A premium, visually-immersive tourism web portal showcasing next-generation travel booking and exploration experiences.</p>
+                        <div class="portfolio-links">
+                            <a href="https://krishanprageeth0.github.io/AETHER-TRAVELS/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: DG Enterprises Tourism -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./dg_tourism.png" alt="DG Enterprises Tourism" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">WordPress</span>
+                            <span class="portfolio-tag">PHP</span>
+                            <span class="portfolio-tag">WooCommerce</span>
+                        </div>
+                        <h3 class="portfolio-card-title">DG Tourism Portal</h3>
+                        <p class="portfolio-card-desc">A professional agency tourism website built for travel scheduling, package displays, and direct user coordination.</p>
+                        <div class="portfolio-links">
+                            <a href="https://tourism.dgenterprises.lk/wp/home/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Portfolio Krishan -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./portfolio_krishan.png" alt="Portfolio Krishan" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">HTML5/CSS3</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">Bootstrap</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Portfolio Krishan</h3>
+                        <p class="portfolio-card-desc">A personal brand portal summarizing earlier technical projects, key competencies, and developer milestones.</p>
+                        <div class="portfolio-links">
+                            <a href="https://krishanprageeth0.github.io/PortfolioKrishan/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Knexa Business Site -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./knexa_business.png" alt="Knexa Business Website" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Next.js</span>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Vercel</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Knexa Corporate Portal</h3>
+                        <p class="portfolio-card-desc">The official business website for Knexa System, demonstrating service capabilities, POS setups, and modern brand design.</p>
+                        <div class="portfolio-links">
+                            <a href="https://knexa-nu.vercel.app/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Knexa Wedding Invitation -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./knexa_wedding.png" alt="Wedding Invitation Portal" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Next.js</span>
+                            <span class="portfolio-tag">Framer Motion</span>
+                            <span class="portfolio-tag">Tailwind</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Interactive Guest Portal</h3>
+                        <p class="portfolio-card-desc">A highly customized and interactive digital wedding invitation application complete with smooth parallax reveals and RSVP forms.</p>
+                        <div class="portfolio-links">
+                            <a href="https://knexademo.vercel.app/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: Atelier Sens -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./atelier_sens.png" alt="Atelier Sens" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">HTML5/CSS3</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">UX Design</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Atelier Sens</h3>
+                        <p class="portfolio-card-desc">An elegant e-commerce design portal for premium fashion, highlighting cart actions and smooth micro-animations.</p>
+                        <div class="portfolio-links">
+                            <a href="https://krishanprageeth0.github.io/ATELIER-SENS/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7: DG Enterprises Shop -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./dg_shop.png" alt="DG Enterprises Shop" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">WordPress</span>
+                            <span class="portfolio-tag">WooCommerce</span>
+                            <span class="portfolio-tag">MySQL</span>
+                        </div>
+                        <h3 class="portfolio-card-title">DG E-Commerce Shop</h3>
+                        <p class="portfolio-card-desc">A fully functional multi-category web store featuring product reviews, cart management, and payment pathways.</p>
+                        <div class="portfolio-links">
+                            <a href="https://dgenterprises.lk/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8: Narthanika Web -->
+            <div class="portfolio-card glass-panel">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./narthanika_web.png" alt="Narthanika Web" class="portfolio-img">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">HTML5/CSS3</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">Responsive</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Narthanika Academy</h3>
+                        <p class="portfolio-card-desc">A visual site for a local dancing academy featuring class details, gallery displays, and interactive contact panels.</p>
+                        <div class="portfolio-links">
+                            <a href="https://krishanprageeth0.github.io/narthanika_web/" target="_blank" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header reveal">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have a project in mind, want to build custom POS tools, or just want to connect? Drop a line.</p>
+        </div>
+        
+        <div class="contact-grid reveal">
+            <div class="contact-info">
+                <div class="contact-card glass-panel">
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">V.K. Krishan Prageeth Kumara</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                            Let's collaborate on building high-performance web systems and creating beautiful user interfaces.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-item-label">Email</div>
+                                    <div class="contact-item-value">Krishanprageeth87@gmail.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-item-label">Phone</div>
+                                    <div class="contact-item-value">+94 70 137 9291</div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <div class="contact-item-label">Location</div>
+                                    <div class="contact-item-value">Sri Lanka</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/krishanprageeth0" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.knexasystem.com" target="_blank" class="social-btn"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-card glass-panel">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-input" placeholder=" " required>
+                        <label for="name" class="form-label">Your Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-input" placeholder=" " required>
+                        <label for="email" class="form-label">Your Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" class="form-textarea" placeholder=" " required></textarea>
+                        <label for="message" class="form-label">Your Message</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; padding: 16px;">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./logo 1.png" alt="Knexa Logo" style="height: 28px; width: auto; border-radius: 50%; border: 1px solid var(--accent-cyan);">
+                <span class="footer-brand">V.K. <span>Krishan Prageeth</span></span>
+            </div>
+            <p class="footer-desc">Crafting smart technical systems and creative visual layouts that scale.</p>
+            <p class="footer-copy">&copy; 2026 V.K. Krishan Prageeth Kumara. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Core File -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
