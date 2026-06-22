@@ -97,12 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
         revealObserver.observe(reveal);
     });
 
-    // --- 3D Tilt Effect for Portfolio Cards ---
+    // --- 3D Tilt Effect for Portfolio Cards (Throttled for Smoothness) ---
     const cards = document.querySelectorAll(".portfolio-card");
     
     cards.forEach(card => {
         const inner = card.querySelector(".portfolio-card-inner");
         const shine = card.querySelector(".portfolio-overlay-shine");
+        
+        let tiltFrameId = null;
         
         card.addEventListener("mousemove", (e) => {
             if (!inner) return;
@@ -110,24 +112,32 @@ document.addEventListener("DOMContentLoaded", () => {
             const x = e.clientX - rect.left; // x position within element
             const y = e.clientY - rect.top;  // y position within element
             
-            // Calculate relative coordinate from card center (-0.5 to 0.5)
-            const xc = (x - rect.width / 2) / (rect.width / 2);
-            const yc = (y - rect.height / 2) / (rect.height / 2);
-            
-            // Rotate card: max 12 degrees
-            const rotateX = -yc * 12;
-            const rotateY = xc * 12;
-            
-            inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-            
-            // Update shine gradient position
-            if (shine) {
-                const angle = Math.atan2(y - rect.height / 2, x - rect.width / 2) * (180 / Math.PI);
-                shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 212, 255, 0.15) 0%, transparent 60%)`;
+            if (tiltFrameId) {
+                cancelAnimationFrame(tiltFrameId);
             }
+            
+            tiltFrameId = requestAnimationFrame(() => {
+                // Calculate relative coordinate from card center (-0.5 to 0.5)
+                const xc = (x - rect.width / 2) / (rect.width / 2);
+                const yc = (y - rect.height / 2) / (rect.height / 2);
+                
+                // Rotate card: max 12 degrees
+                const rotateX = -yc * 12;
+                const rotateY = xc * 12;
+                
+                inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                
+                // Update shine gradient position
+                if (shine) {
+                    shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 212, 255, 0.15) 0%, transparent 60%)`;
+                }
+            });
         });
         
         card.addEventListener("mouseleave", () => {
+            if (tiltFrameId) {
+                cancelAnimationFrame(tiltFrameId);
+            }
             if (!inner) return;
             inner.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
             if (shine) {
