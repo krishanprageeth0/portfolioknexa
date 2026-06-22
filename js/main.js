@@ -4,6 +4,12 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Force manual scroll restoration to prevent jumping on refresh
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     let isGravityOff = false;
     // --- Mobile Menu Toggle ---
     const menuToggle = document.querySelector(".menu-toggle");
@@ -513,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
             statusText.classList.remove("granted");
 
             scanInterval = setInterval(() => {
-                scanProgress += 2.5; // Reaches 100% in 40 steps (2 seconds)
+                scanProgress += 3.34; // Reaches 100% in 30 steps (1.5 seconds)
                 if (progressFill) progressFill.style.width = `${scanProgress}%`;
                 
                 // Play scanning click sound that rises in pitch
@@ -551,6 +557,9 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => { playUiClick(850, "sine", 0.15); }, 160);
 
             sessionStorage.setItem("krishan_booted", "true");
+
+            // Scroll window to top immediately on access
+            window.scrollTo({ top: 0, behavior: "instant" });
 
             // Fade out overlay screen smoothly
             setTimeout(() => {
