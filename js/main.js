@@ -1,9 +1,10 @@
 /* 
    Glassmorphic Personal Portfolio Core Logic
-   Author: V.K. Krishan Prageeth Kumara (Antigravity AI Assistant Collaboration)
+   Author: Krishan Prageeth (Antigravity AI Assistant Collaboration)
 */
 
 document.addEventListener("DOMContentLoaded", () => {
+    let isGravityOff = false;
     // --- Mobile Menu Toggle ---
     const menuToggle = document.querySelector(".menu-toggle");
     const navMenu = document.querySelector(".nav-menu");
@@ -251,4 +252,356 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // --- Anti-Gravity Overdrive Mode & Cyber-HUD Panel ---
+    const gravityToggle = document.querySelector(".gravity-toggle");
+    let gravityAnimationId = null;
+    const floatTargets = document.querySelectorAll(
+        '.photo-frame, .about-card, .feature-box, .skill-card, .timeline-card, .portfolio-card, .contact-card, .contact-form-card'
+    );
+
+    let angle = 0;
+
+    function driftLoop() {
+        if (!isGravityOff) return;
+        angle += 0.008; // Speed of drift
+
+        floatTargets.forEach((target, index) => {
+            // If user is currently hovering the element, pause drift so hover scaling/tilts take precedence
+            if (target.matches(':hover')) return;
+
+            // Unique offsets using card index to make the drift asynchronous and natural
+            const speedX = 0.4 + (index % 5) * 0.15;
+            const speedY = 0.5 + (index % 3) * 0.2;
+            const ampX = 25 + (index % 4) * 8;   // horizontal float range (px)
+            const ampY = 30 + (index % 3) * 10;  // vertical float range (px)
+            const rotAmp = 4 + (index % 3) * 2;  // rotation float range (deg)
+
+            const x = Math.sin(angle * speedX + index) * ampX;
+            const y = Math.cos(angle * speedY + index) * ampY;
+            const rot = Math.sin(angle * (speedX * 0.8) + index) * rotAmp;
+
+            target.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rot}deg)`;
+        });
+
+        gravityAnimationId = requestAnimationFrame(driftLoop);
+    }
+
+    function toggleZeroGravity(active) {
+        isGravityOff = active;
+        
+        // Update quick toggle button state
+        if (gravityToggle) {
+            gravityToggle.classList.toggle("active", active);
+            const toggleSpan = gravityToggle.querySelector("span");
+            const toggleIcon = gravityToggle.querySelector("i");
+            if (toggleSpan) toggleSpan.textContent = active ? "Zero-G On" : "Zero-G Off";
+            if (toggleIcon) toggleIcon.className = active ? "fas fa-satellite-dish" : "fas fa-satellite";
+        }
+
+        // Update HUD checkbox state
+        const hudGravityInput = document.getElementById("hud-gravity");
+        if (hudGravityInput) {
+            hudGravityInput.checked = active;
+        }
+
+        // Update body class
+        document.body.classList.toggle("zero-g-active", active);
+
+        if (active) {
+            floatTargets.forEach(target => {
+                target.classList.add("zero-g-target");
+            });
+            driftLoop();
+            playUiClick(440, "sine", 0.12); // low synth pitch for turning ON
+        } else {
+            if (gravityAnimationId) {
+                cancelAnimationFrame(gravityAnimationId);
+            }
+            floatTargets.forEach(target => {
+                target.style.transform = "";
+                setTimeout(() => {
+                    target.classList.remove("zero-g-target");
+                }, 500);
+            });
+            playUiClick(330, "sine", 0.08); // lower pitch for turning OFF
+        }
+    }
+
+    // Attach listeners to quick gravity button
+    if (gravityToggle) {
+        gravityToggle.addEventListener("click", () => {
+            toggleZeroGravity(!isGravityOff);
+        });
+    }
+
+    // --- UI Sound Synthesizer (Web Audio API) ---
+    let isSoundOn = false;
+    let audioCtx = null;
+
+    function playUiClick(freq = 800, type = "sine", duration = 0.05) {
+        if (!isSoundOn) return;
+        try {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            gainNode.gain.setValueAtTime(0.03, audioCtx.currentTime); // Keep sound soft
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {
+            console.log("AudioContext blocked or unsupported", e);
+        }
+    }
+
+    // Hook hover click sounds to UI elements
+    function attachSoundHooks() {
+        const hoverables = document.querySelectorAll(
+            '.nav-link, .nav-cta, .btn, .skill-card, .portfolio-btn, .social-btn, .theme-btn, .hud-toggle, .hud-close, .hud-switch, .footer-links a, .footer-contact-details a, .footer-social-btn'
+        );
+
+        hoverables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                playUiClick(1200, 'sine', 0.015); // soft quick chirp
+            });
+            el.addEventListener('click', () => {
+                playUiClick(700, 'sine', 0.06); // mid beep
+            });
+        });
+    }
+
+    // --- HUD Panel Interactions ---
+    const hudToggle = document.querySelector(".hud-toggle");
+    const hudPanel = document.querySelector(".hud-panel");
+    const hudClose = document.querySelector(".hud-close");
+
+    if (hudToggle && hudPanel) {
+        hudToggle.addEventListener("click", () => {
+            const isOpen = hudPanel.classList.toggle("active");
+            hudToggle.classList.toggle("active", isOpen);
+            playUiClick(isOpen ? 850 : 650, "sine", 0.05);
+        });
+
+        if (hudClose) {
+            hudClose.addEventListener("click", () => {
+                hudPanel.classList.remove("active");
+                hudToggle.classList.remove("active");
+                playUiClick(650, "sine", 0.05);
+            });
+        }
+    }
+
+    // Atmospheric switches
+    const particleSwitch = document.getElementById("hud-particles");
+    const particlesCanvas = document.getElementById("canvas-particles");
+    if (particleSwitch && particlesCanvas) {
+        particleSwitch.addEventListener("change", (e) => {
+            particlesCanvas.style.display = e.target.checked ? "block" : "none";
+            playUiClick(e.target.checked ? 850 : 550, "sine", 0.04);
+        });
+    }
+
+    const soundSwitch = document.getElementById("hud-sound");
+    if (soundSwitch) {
+        soundSwitch.addEventListener("change", (e) => {
+            isSoundOn = e.target.checked;
+            if (isSoundOn) {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                playUiClick(950, "sine", 0.08);
+                // Attach hooks first time sound is turned ON
+                attachSoundHooks();
+            }
+        });
+    }
+
+    const gravitySwitch = document.getElementById("hud-gravity");
+    if (gravitySwitch) {
+        gravitySwitch.addEventListener("change", (e) => {
+            toggleZeroGravity(e.target.checked);
+        });
+    }
+
+    // Theme Accent Switcher
+    const themeBtns = document.querySelectorAll(".theme-btn");
+    const themeColors = {
+        cyan: {
+            primary: "#00d4ff",
+            secondary: "#0088ff",
+            glow: "rgba(0, 212, 255, 0.4)"
+        },
+        pink: {
+            primary: "#ff007f",
+            secondary: "#ff00ff",
+            glow: "rgba(255, 0, 127, 0.4)"
+        },
+        green: {
+            primary: "#39ff14",
+            secondary: "#00ff66",
+            glow: "rgba(57, 255, 20, 0.4)"
+        },
+        gold: {
+            primary: "#ff9f00",
+            secondary: "#ff5500",
+            glow: "rgba(255, 159, 0, 0.4)"
+        }
+    };
+
+    themeBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            themeBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            
+            const themeName = btn.getAttribute("data-theme");
+            const colors = themeColors[themeName];
+            if (colors) {
+                document.documentElement.style.setProperty('--accent-cyan', colors.primary);
+                document.documentElement.style.setProperty('--accent-blue', colors.secondary);
+                document.documentElement.style.setProperty('--accent-glow', colors.glow);
+                
+                const freqs = { cyan: 900, pink: 1050, green: 800, gold: 950 };
+                playUiClick(freqs[themeName] || 900, "sine", 0.12);
+            }
+        });
+    });
+
+    // --- Biometric Identity Scanner (Holographic Boot Loader) ---
+    const bootLoader = document.getElementById("boot-loader");
+    const scanner = document.querySelector(".scanner-container");
+    const progressFill = document.querySelector(".scanner-progress-fill");
+    const statusText = document.querySelector(".scanner-status");
+
+    let isScanning = false;
+    let scanProgress = 0;
+    let scanInterval = null;
+
+    // Check if session has already authorized access
+    if (sessionStorage.getItem("krishan_booted") === "true") {
+        if (bootLoader) bootLoader.style.display = "none";
+    }
+
+    if (bootLoader && scanner) {
+        function startScan() {
+            if (isScanning) return;
+            isScanning = true;
+            scanner.classList.add("scanning");
+            statusText.textContent = "SCANNING BIOMETRIC DATA... KEEP HOLDING";
+            statusText.classList.remove("granted");
+
+            scanInterval = setInterval(() => {
+                scanProgress += 2.5; // Reaches 100% in 40 steps (2 seconds)
+                if (progressFill) progressFill.style.width = `${scanProgress}%`;
+                
+                // Play scanning click sound that rises in pitch
+                playUiClick(300 + scanProgress * 5, "sine", 0.03);
+
+                if (scanProgress >= 100) {
+                    completeScan();
+                }
+            }, 50);
+        }
+
+        function cancelScan() {
+            if (!isScanning) return;
+            clearInterval(scanInterval);
+            isScanning = false;
+            scanner.classList.remove("scanning");
+            scanProgress = 0;
+            if (progressFill) progressFill.style.width = "0%";
+            statusText.textContent = "SCAN INTERRUPTED. HOLD TO AUTHORIZE";
+            
+            // Play error synth beep
+            playUiClick(150, "sawtooth", 0.25);
+        }
+
+        function completeScan() {
+            clearInterval(scanInterval);
+            isScanning = false;
+            scanner.classList.remove("scanning");
+            statusText.textContent = "ACCESS GRANTED. AUTHORIZING PROTOCOLS...";
+            statusText.classList.add("granted");
+
+            // Play successful access chord sequence
+            setTimeout(() => { playUiClick(520, "sine", 0.1); }, 0);
+            setTimeout(() => { playUiClick(650, "sine", 0.1); }, 80);
+            setTimeout(() => { playUiClick(850, "sine", 0.15); }, 160);
+
+            sessionStorage.setItem("krishan_booted", "true");
+
+            // Fade out overlay screen smoothly
+            setTimeout(() => {
+                bootLoader.classList.add("fade-out");
+                setTimeout(() => {
+                    bootLoader.style.display = "none";
+                }, 800);
+            }, 600);
+        }
+
+        scanner.addEventListener("mousedown", (e) => {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            startScan();
+        });
+        scanner.addEventListener("mouseup", cancelScan);
+        scanner.addEventListener("mouseleave", cancelScan);
+
+        // Touch event support for mobile
+        scanner.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            startScan();
+        });
+        scanner.addEventListener("touchend", cancelScan);
+        scanner.addEventListener("touchcancel", cancelScan);
+    }
+
+    // --- Skill Orbits Detail Switcher ---
+    const orbitNodes = document.querySelectorAll(".orbit-node, .orbit-center");
+    const detailPlaceholder = document.querySelector(".skill-details-placeholder");
+    const detailContents = document.querySelectorAll(".skill-details-content");
+
+    orbitNodes.forEach(node => {
+        node.addEventListener("mouseenter", () => {
+            if (detailPlaceholder) detailPlaceholder.style.display = "none";
+            
+            detailContents.forEach(content => {
+                content.classList.remove("active");
+            });
+
+            const skillName = node.getAttribute("data-skill");
+            const targetContent = document.getElementById(`skill-${skillName}`);
+            
+            if (targetContent) {
+                targetContent.classList.add("active");
+                
+                const barFill = targetContent.querySelector(".skill-bar-fill");
+                if (barFill) {
+                    const percent = barFill.getAttribute("data-percent");
+                    // Trigger CSS width transition smoothly
+                    setTimeout(() => {
+                        barFill.style.width = percent;
+                    }, 50);
+                }
+                
+                playUiClick(1000, "sine", 0.04);
+            }
+        });
+    });
 });
