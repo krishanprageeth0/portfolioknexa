@@ -566,6 +566,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 bootLoader.classList.add("fade-out");
                 setTimeout(() => {
                     bootLoader.style.display = "none";
+                    // Scroll to top again once the overlay is completely gone!
+                    window.scrollTo({ top: 0, behavior: "instant" });
                 }, 800);
             }, 600);
         }
