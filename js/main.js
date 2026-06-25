@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Dynamic Typing Effect ---
     const typedTextSpan = document.querySelector(".typed-text");
-    const roles = ["Founder & Lead Developer", "Full-Stack Software Engineer", "Senior IT & Finance Coordinator", "UI/UX Enthusiast"];
+    const roles = ["Founder & Lead Developer", "Full-Stack Software Engineer", "Former Senior IT & Finance Coordinator", "UI/UX Enthusiast"];
     const typingSpeed = 100;
     const erasingSpeed = 50;
     const newWordDelay = 2000; // Delay between words
