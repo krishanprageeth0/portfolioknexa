@@ -470,24 +470,86 @@
             <p class="section-subtitle">Explore a collection of dynamic web applications, e-commerce stores, and custom portals I have built.</p>
         </div>
         
+        <!-- Category Filter Bar -->
+        <div class="portfolio-filter-bar reveal">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All (<span class="filter-count">12</span>)</button>
+            <button class="filter-btn" data-filter="ecommerce"><i class="fas fa-shopping-cart"></i> E-Commerce</button>
+            <button class="filter-btn" data-filter="tourism"><i class="fas fa-plane"></i> Tourism</button>
+            <button class="filter-btn" data-filter="dancing"><i class="fas fa-music"></i> Dancing Class</button>
+            <button class="filter-btn" data-filter="wedding"><i class="fas fa-heart"></i> Wedding Invitations</button>
+            <button class="filter-btn" data-filter="company"><i class="fas fa-building"></i> Company</button>
+            <button class="filter-btn" data-filter="portfolio"><i class="fas fa-user-tie"></i> Portfolio</button>
+        </div>
+        
         <div class="portfolio-grid reveal">
-            <!-- Project 1: Aether Travels -->
-            <div class="portfolio-card glass-panel">
+            <!-- 1. E-Commerce: Auta.lk -->
+            <div class="portfolio-card glass-panel" data-category="ecommerce">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./aether_travels.png" alt="Aether Travels" class="portfolio-img">
+                        <img src="./project_auta.png" alt="Auta.lk Auto Parts Store" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-shopping-bag"></i> E-Commerce</span>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">HTML5/CSS3</span>
+                            <span class="portfolio-tag">Next.js / Web</span>
+                            <span class="portfolio-tag">Auto Parts</span>
+                            <span class="portfolio-tag">Online Store</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Auta.lk Auto Store</h3>
+                        <p class="portfolio-card-desc">An automotive spare parts and accessories e-commerce marketplace featuring fast catalog searches, categorized product filters, and online checkout.</p>
+                        <div class="portfolio-links">
+                            <a href="https://auta.lk" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. E-Commerce: Atelier Sens -->
+            <div class="portfolio-card glass-panel" data-category="ecommerce">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./atelier_sens.png" alt="Atelier Sens Luxury Fashion" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-gem"></i> E-Commerce</span>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">HTML5 / CSS3</span>
                             <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">GSAP</span>
+                            <span class="portfolio-tag">Fashion UX</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Atelier Sens</h3>
+                        <p class="portfolio-card-desc">An elegant e-commerce design portal for premium fashion, showcasing curated collections, responsive cart interactions, and smooth micro-animations.</p>
+                        <div class="portfolio-links">
+                            <a href="https://krishanprageeth0.github.io/ATELIER-SENS/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Tourism: Aether Travels -->
+            <div class="portfolio-card glass-panel" data-category="tourism">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./aether_travels.png" alt="Aether Travels" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-plane-departure"></i> Tourism</span>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">HTML5 / CSS3</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">GSAP Motion</span>
                         </div>
                         <h3 class="portfolio-card-title">Aether Travels</h3>
-                        <p class="portfolio-card-desc">A premium, visually-immersive tourism web portal showcasing next-generation travel booking and exploration experiences.</p>
+                        <p class="portfolio-card-desc">A visually-immersive tourism web portal showcasing next-generation Sri Lankan travel experiences, excursion packages, and inquiry pathways.</p>
                         <div class="portfolio-links">
-                            <a href="https://krishanprageeth0.github.io/AETHER-TRAVELS/" target="_blank" class="portfolio-btn">
+                            <a href="https://krishanprageeth0.github.io/AETHER-TRAVELS/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -495,47 +557,24 @@
                 </div>
             </div>
 
-            <!-- Project 2: DG Enterprises Tourism -->
-            <div class="portfolio-card glass-panel">
+            <!-- 4. Dancing Class: Narthanika Dancing Academy -->
+            <div class="portfolio-card glass-panel" data-category="dancing">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./dg_tourism.png" alt="DG Enterprises Tourism" class="portfolio-img">
+                        <img src="./narthanika_web.png" alt="Narthanika Dancing Academy" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-music"></i> Dancing Class</span>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">WordPress</span>
-                            <span class="portfolio-tag">PHP</span>
-                            <span class="portfolio-tag">WooCommerce</span>
-                        </div>
-                        <h3 class="portfolio-card-title">DG Tourism Portal</h3>
-                        <p class="portfolio-card-desc">A professional agency tourism website built for travel scheduling, package displays, and direct user coordination.</p>
-                        <div class="portfolio-links">
-                            <a href="https://tourism.dgenterprises.lk/wp/home/" target="_blank" class="portfolio-btn">
-                                Live Preview <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3: Portfolio Krishan -->
-            <div class="portfolio-card glass-panel">
-                <div class="portfolio-card-inner">
-                    <div class="portfolio-img-container">
-                        <img src="./portfolio_krishan.png" alt="Portfolio Krishan" class="portfolio-img">
-                        <div class="portfolio-overlay-shine"></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">HTML5/CSS3</span>
+                            <span class="portfolio-tag">HTML5 / CSS3</span>
                             <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">Bootstrap</span>
+                            <span class="portfolio-tag">Creative Web</span>
                         </div>
-                        <h3 class="portfolio-card-title">Portfolio Krishan</h3>
-                        <p class="portfolio-card-desc">A personal brand portal summarizing earlier technical projects, key competencies, and developer milestones.</p>
+                        <h3 class="portfolio-card-title">Narthanika Academy</h3>
+                        <p class="portfolio-card-desc">A graceful, interactive website for a traditional dance academy presenting class schedules, event performances, and online registration.</p>
                         <div class="portfolio-links">
-                            <a href="https://krishanprageeth0.github.io/PortfolioKrishan/" target="_blank" class="portfolio-btn">
+                            <a href="https://krishanprageeth0.github.io/narthanika_web/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -543,23 +582,24 @@
                 </div>
             </div>
 
-            <!-- Project 4: Knexa Business Site -->
-            <div class="portfolio-card glass-panel">
+            <!-- 5. Wedding Invitation: Traditional Invitation -->
+            <div class="portfolio-card glass-panel" data-category="wedding">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./knexa_business.png" alt="Knexa Business Website" class="portfolio-img">
+                        <img src="./project_traditional_invitation.png" alt="Traditional Wedding Invitation" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-envelope-open-text"></i> Wedding Invitation</span>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Next.js</span>
-                            <span class="portfolio-tag">React</span>
-                            <span class="portfolio-tag">Vercel</span>
+                            <span class="portfolio-tag">Traditional</span>
+                            <span class="portfolio-tag">RSVP & Audio</span>
                         </div>
-                        <h3 class="portfolio-card-title">Knexa Corporate Portal</h3>
-                        <p class="portfolio-card-desc">The official business website for Knexa System, demonstrating service capabilities, POS setups, and modern brand design.</p>
+                        <h3 class="portfolio-card-title">Traditional Invitation</h3>
+                        <p class="portfolio-card-desc">An interactive digital wedding invitation honoring authentic Sri Lankan traditions with animated envelope reveals, countdowns, and instant RSVP.</p>
                         <div class="portfolio-links">
-                            <a href="https://knexa-nu.vercel.app/" target="_blank" class="portfolio-btn">
+                            <a href="https://traditional-invitation.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -567,23 +607,74 @@
                 </div>
             </div>
 
-            <!-- Project 5: Knexa Wedding Invitation -->
-            <div class="portfolio-card glass-panel">
+            <!-- 6. Wedding Invitation: Ariya Sinhala Invitation -->
+            <div class="portfolio-card glass-panel" data-category="wedding">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./knexa_wedding.png" alt="Wedding Invitation Portal" class="portfolio-img">
+                        <img src="./project_ariya_sinhala.png" alt="Ariya Sinhala Wedding Invitation" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-heart"></i> Wedding Invitation</span>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">React / Next</span>
+                            <span class="portfolio-tag">Sinhala UI</span>
+                            <span class="portfolio-tag">Music & Timers</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Ariya Sinhala Invitation</h3>
+                        <p class="portfolio-card-desc">A culturally tailored wedding card in elegant Sinhala typography featuring soothing background music, auspicious timing schedules, and map directions.</p>
+                        <div class="portfolio-links">
+                            <a href="https://ariya-sinhala.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Wedding Invitation: Chamod & Kushani Wedding -->
+            <div class="portfolio-card glass-panel" data-category="wedding">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./project_chamod_kushani.png" alt="Chamod & Kushani Wedding" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-ring"></i> Wedding Invitation</span>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Next.js</span>
+                            <span class="portfolio-tag">Couple Story</span>
+                            <span class="portfolio-tag">Photo Gallery</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Chamod & Kushani</h3>
+                        <p class="portfolio-card-desc">A bespoke romantic wedding portal celebrating the love story of Chamod and Kushani with love timeline memories, gallery reels, and guest RSVP.</p>
+                        <div class="portfolio-links">
+                            <a href="https://chamod-kushani-wedding.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Wedding Invitation: Knexa Demo -->
+            <div class="portfolio-card glass-panel" data-category="wedding">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./project_knexademo.png" alt="Knexa Wedding Experience" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-sparkles"></i> Wedding Invitation</span>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Next.js</span>
                             <span class="portfolio-tag">Framer Motion</span>
-                            <span class="portfolio-tag">Tailwind</span>
+                            <span class="portfolio-tag">Luxury UI</span>
                         </div>
-                        <h3 class="portfolio-card-title">Interactive Guest Portal</h3>
-                        <p class="portfolio-card-desc">A highly customized and interactive digital wedding invitation application complete with smooth parallax reveals and RSVP forms.</p>
+                        <h3 class="portfolio-card-title">Knexa Wedding Demo</h3>
+                        <p class="portfolio-card-desc">A luxury digital wedding prototype featuring smooth parallax scroll animations, interactive guest greeting cards, and elegant dark/gold styling.</p>
                         <div class="portfolio-links">
-                            <a href="https://knexademo.vercel.app/" target="_blank" class="portfolio-btn">
+                            <a href="https://knexademo.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -591,23 +682,24 @@
                 </div>
             </div>
 
-            <!-- Project 6: Atelier Sens -->
-            <div class="portfolio-card glass-panel">
+            <!-- 9. Wedding Invitation: Knexa Wedding Invitation Portal -->
+            <div class="portfolio-card glass-panel" data-category="wedding">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./atelier_sens.png" alt="Atelier Sens" class="portfolio-img">
+                        <img src="./project_wedding_knexa.png" alt="Wedding Invitation Knexa" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-glass-cheers"></i> Wedding Invitation</span>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">HTML5/CSS3</span>
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">UX Design</span>
+                            <span class="portfolio-tag">React / Tailwind</span>
+                            <span class="portfolio-tag">Interactive</span>
+                            <span class="portfolio-tag">Digital RSVP</span>
                         </div>
-                        <h3 class="portfolio-card-title">Atelier Sens</h3>
-                        <p class="portfolio-card-desc">An elegant e-commerce design portal for premium fashion, highlighting cart actions and smooth micro-animations.</p>
+                        <h3 class="portfolio-card-title">Wedding Portal Knexa</h3>
+                        <p class="portfolio-card-desc">An all-in-one digital wedding platform with multimedia guest portals, real-time RSVP aggregation, and mobile-optimized ceremony schedules.</p>
                         <div class="portfolio-links">
-                            <a href="https://krishanprageeth0.github.io/ATELIER-SENS/" target="_blank" class="portfolio-btn">
+                            <a href="https://wedding-invitation-knexa.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -615,23 +707,24 @@
                 </div>
             </div>
 
-            <!-- Project 7: DG Enterprises Shop -->
-            <div class="portfolio-card glass-panel">
+            <!-- 10. Company Website: Knexa Corporate -->
+            <div class="portfolio-card glass-panel" data-category="company">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./dg_shop.png" alt="DG Enterprises Shop" class="portfolio-img">
+                        <img src="./project_knexa_nu.png" alt="Knexa Corporate Website" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-building"></i> Company Website</span>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">WordPress</span>
-                            <span class="portfolio-tag">WooCommerce</span>
-                            <span class="portfolio-tag">MySQL</span>
+                            <span class="portfolio-tag">Next.js / React</span>
+                            <span class="portfolio-tag">Enterprise POS</span>
+                            <span class="portfolio-tag">Tech Agency</span>
                         </div>
-                        <h3 class="portfolio-card-title">DG E-Commerce Shop</h3>
-                        <p class="portfolio-card-desc">A fully functional multi-category web store featuring product reviews, cart management, and payment pathways.</p>
+                        <h3 class="portfolio-card-title">Knexa Corporate</h3>
+                        <p class="portfolio-card-desc">The official corporate portal for Knexa System, demonstrating service capabilities, custom POS systems, digital infrastructure, and tech solutions.</p>
                         <div class="portfolio-links">
-                            <a href="https://dgenterprises.lk/" target="_blank" class="portfolio-btn">
+                            <a href="https://knexa-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -639,23 +732,49 @@
                 </div>
             </div>
 
-            <!-- Project 8: Narthanika Web -->
-            <div class="portfolio-card glass-panel">
+            <!-- 11. Company Website: Knexa Design Portfolio -->
+            <div class="portfolio-card glass-panel" data-category="company">
                 <div class="portfolio-card-inner">
                     <div class="portfolio-img-container">
-                        <img src="./narthanika_web.png" alt="Narthanika Web" class="portfolio-img">
+                        <img src="./project_knexa_design.png" alt="Knexa Design Portfolio" class="portfolio-img" loading="lazy">
                         <div class="portfolio-overlay-shine"></div>
                     </div>
                     <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-palette"></i> Company Website</span>
                         <div class="portfolio-tags">
-                            <span class="portfolio-tag">HTML5/CSS3</span>
-                            <span class="portfolio-tag">JavaScript</span>
-                            <span class="portfolio-tag">Responsive</span>
+                            <span class="portfolio-tag">UI/UX Studio</span>
+                            <span class="portfolio-tag">Branding</span>
+                            <span class="portfolio-tag">Graphic Design</span>
                         </div>
-                        <h3 class="portfolio-card-title">Narthanika Academy</h3>
-                        <p class="portfolio-card-desc">A visual site for a local dancing academy featuring class details, gallery displays, and interactive contact panels.</p>
+                        <h3 class="portfolio-card-title">Knexa Design Studio</h3>
+                        <p class="portfolio-card-desc">A specialized design agency showcase presenting modern branding, graphic designs, logo architectures, and bespoke digital visual design systems.</p>
                         <div class="portfolio-links">
-                            <a href="https://krishanprageeth0.github.io/narthanika_web/" target="_blank" class="portfolio-btn">
+                            <a href="https://knexadesignportfolio.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+                                Live Preview <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Portfolio Website: Dhanuka Mudalige Portfolio -->
+            <div class="portfolio-card glass-panel" data-category="portfolio">
+                <div class="portfolio-card-inner">
+                    <div class="portfolio-img-container">
+                        <img src="./project_dhanuka_mudalige.png" alt="Dhanuka Mudalige Portfolio" class="portfolio-img" loading="lazy">
+                        <div class="portfolio-overlay-shine"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-card-category-badge"><i class="fas fa-user-circle"></i> Portfolio</span>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Next.js</span>
+                            <span class="portfolio-tag">Personal Brand</span>
+                            <span class="portfolio-tag">Modern UI</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Dhanuka Mudalige</h3>
+                        <p class="portfolio-card-desc">A clean, high-impact personal portfolio highlighting professional skills, career achievements, project galleries, and direct contact options.</p>
+                        <div class="portfolio-links">
+                            <a href="https://dhanuka-mudalige.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
                                 Live Preview <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>

@@ -632,4 +632,35 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // --- Portfolio Category Filter Logic ---
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+    if (filterButtons.length > 0 && portfolioCards.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const filterValue = btn.getAttribute("data-filter");
+
+                portfolioCards.forEach(card => {
+                    const cardCategory = card.getAttribute("data-category");
+                    if (filterValue === "all" || cardCategory === filterValue) {
+                        card.classList.remove("is-hidden");
+                        card.style.opacity = "0";
+                        card.style.transform = "scale(0.95)";
+                        setTimeout(() => {
+                            card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+                            card.style.opacity = "1";
+                            card.style.transform = "scale(1)";
+                        }, 50);
+                    } else {
+                        card.classList.add("is-hidden");
+                    }
+                });
+            });
+        });
+    }
 });
