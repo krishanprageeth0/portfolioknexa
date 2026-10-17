@@ -206,4 +206,87 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // 7. Interactive FAQ Accordion
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        if (questionBtn && answer) {
+            questionBtn.addEventListener("click", () => {
+                const isActive = item.classList.contains("active");
+
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove("active");
+                        const otherBtn = otherItem.querySelector(".faq-question");
+                        const otherAns = otherItem.querySelector(".faq-answer");
+                        if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+                        if (otherAns) otherAns.style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove("active");
+                    questionBtn.setAttribute("aria-expanded", "false");
+                    answer.style.maxHeight = null;
+                } else {
+                    item.classList.add("active");
+                    questionBtn.setAttribute("aria-expanded", "true");
+                    answer.style.maxHeight = (answer.scrollHeight + 40) + "px";
+                }
+            });
+        }
+    });
+
+    // 8. Floating Back-to-Top Button
+    const backToTopBtn = document.getElementById("back-to-top");
+    if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 400) {
+                backToTopBtn.classList.add("visible");
+            } else {
+                backToTopBtn.classList.remove("visible");
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // 9. Instant Copy-to-Clipboard with Toast Notification
+    const toast = document.getElementById("toast");
+    let toastTimeout;
+
+    function showToast(message) {
+        if (!toast) return;
+        toast.innerHTML = `<i class="fas fa-check-circle" style="color: #10b981;"></i> ${message}`;
+        toast.classList.add("show");
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2500);
+    }
+
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const textToCopy = btn.getAttribute("data-copy");
+            if (textToCopy && navigator.clipboard) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showToast(`Copied to clipboard: <strong>${textToCopy}</strong>`);
+                }).catch(() => {
+                    showToast(`Copied: <strong>${textToCopy}</strong>`);
+                });
+            }
+        });
+    });
 });
