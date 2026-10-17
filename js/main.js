@@ -135,31 +135,74 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach(el => el.classList.add("active"));
     }
 
-    // 6. Contact Form WhatsApp Submission Handler
+    // 6. Direct Email Dispatcher (Sends directly to krishanprageeth87@gmail.com)
     const contactForm = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("form-submit-btn");
+    const btnText = document.getElementById("btn-text");
+    const btnIcon = document.getElementById("btn-icon");
+    const formStatus = document.getElementById("form-status");
+
     if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
+        contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const name = document.getElementById("name")?.value || "Client";
-            const email = document.getElementById("email")?.value || "";
+            const name = document.getElementById("name")?.value.trim() || "";
+            const email = document.getElementById("email")?.value.trim() || "";
             const projectType = document.getElementById("project-type")?.value || "General Inquiry";
-            const message = document.getElementById("message")?.value || "";
+            const message = document.getElementById("message")?.value.trim() || "";
 
-            const whatsappMessage = encodeURIComponent(
-                `*New Inquiry from Portfolio Website*\n\n` +
-                `*Name:* ${name}\n` +
-                `*Email:* ${email}\n` +
-                `*Project Type:* ${projectType}\n` +
-                `*Message:* ${message}`
-            );
+            // Disable button & show spinner
+            if (submitBtn) submitBtn.disabled = true;
+            if (btnText) btnText.textContent = "Sending Message...";
+            if (btnIcon) btnIcon.className = "fas fa-spinner fa-spin";
+            if (formStatus) formStatus.style.display = "none";
 
-            // Open WhatsApp directly with the pre-filled message
-            const whatsappUrl = `https://wa.me/94701379291?text=${whatsappMessage}`;
-            window.open(whatsappUrl, "_blank");
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/krishanprageeth87@gmail.com", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        Name: name,
+                        Email: email,
+                        "Project Type": projectType,
+                        Message: message,
+                        "_subject": `New Portfolio Lead from ${name} (${projectType})`,
+                        "_template": "table",
+                        "_captcha": "false"
+                    })
+                });
 
-            // Optional reset
-            contactForm.reset();
+                const data = await response.json();
+
+                if (response.ok) {
+                    if (formStatus) {
+                        formStatus.style.display = "block";
+                        formStatus.style.background = "rgba(16, 185, 129, 0.12)";
+                        formStatus.style.border = "1px solid rgba(16, 185, 129, 0.35)";
+                        formStatus.style.color = "#10b981";
+                        formStatus.innerHTML = `<i class="fas fa-check-circle"></i> <strong>Message Sent Successfully!</strong><br>Thank you ${name}, your message has been delivered directly to Krishan's email (krishanprageeth87@gmail.com). I will reply shortly!`;
+                    }
+                    contactForm.reset();
+                } else {
+                    throw new Error(data.message || "Submission failed");
+                }
+            } catch (err) {
+                console.error("Form submission error:", err);
+                if (formStatus) {
+                    formStatus.style.display = "block";
+                    formStatus.style.background = "rgba(239, 68, 68, 0.12)";
+                    formStatus.style.border = "1px solid rgba(239, 68, 68, 0.35)";
+                    formStatus.style.color = "#f87171";
+                    formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> <strong>Unable to send directly right now.</strong><br>Please chat directly via WhatsApp: <a href="https://wa.me/94701379291" target="_blank" style="color: #25D366; text-decoration: underline; font-weight: bold;">+94 70 137 9291</a> or email <a href="mailto:Krishanprageeth87@gmail.com" style="color: #00d4ff; text-decoration: underline;">Krishanprageeth87@gmail.com</a>`;
+                }
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+                if (btnText) btnText.textContent = "Send Message to Email";
+                if (btnIcon) btnIcon.className = "fas fa-paper-plane";
+            }
         });
     }
 });

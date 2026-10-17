@@ -874,21 +874,26 @@
             </div>
             
             <div class="contact-form-card glass-panel">
-                <form class="contact-form" id="contact-form">
+                <form class="contact-form" id="contact-form" action="https://formsubmit.co/krishanprageeth87@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="New Inquiry from Portfolio Website - Krishan Prageeth">
+
                     <h3 style="font-size: 1.3rem; margin-bottom: 20px; font-family: var(--font-heading); font-weight: 700;">Send a Direct Message</h3>
                     
                     <div class="form-group">
-                        <input type="text" id="name" class="form-input" placeholder=" " required>
+                        <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
                         <label for="name" class="form-label">Your Name</label>
                     </div>
                     
                     <div class="form-group">
-                        <input type="email" id="email" class="form-input" placeholder=" " required>
+                        <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
                         <label for="email" class="form-label">Your Email</label>
                     </div>
 
                     <div class="form-group">
-                        <select id="project-type" class="form-input form-select" required>
+                        <select id="project-type" name="project_type" class="form-input form-select" required>
                             <option value="" disabled selected>Select Project Type</option>
                             <option value="WordPress / WooCommerce Store">WordPress / WooCommerce Store</option>
                             <option value="Custom Web Application (Next.js / React)">Custom Web Application (Next.js / React)</option>
@@ -899,13 +904,16 @@
                     </div>
                     
                     <div class="form-group">
-                        <textarea id="message" class="form-textarea" placeholder=" " rows="4" required></textarea>
+                        <textarea id="message" name="message" class="form-textarea" placeholder=" " rows="4" required></textarea>
                         <label for="message" class="form-label">Tell me about your project...</label>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 14px; padding: 16px; font-size: 0.95rem;">
-                        <span>Send via WhatsApp / Email</span> <i class="fas fa-paper-plane"></i>
+                    <button type="submit" class="btn btn-primary" id="form-submit-btn" style="width: 100%; border-radius: 14px; padding: 16px; font-size: 0.95rem;">
+                        <span id="btn-text">Send Message to Email</span> <i class="fas fa-paper-plane" id="btn-icon"></i>
                     </button>
+
+                    <!-- Status Notification Container -->
+                    <div id="form-status" style="display: none; padding: 14px 18px; border-radius: 12px; font-size: 0.88rem; margin-top: 15px; text-align: center; line-height: 1.5;"></div>
                 </form>
             </div>
         </div>
