@@ -96,8 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const filterValue = btn.getAttribute("data-filter");
 
                 portfolioCards.forEach(card => {
-                    const cardCategory = card.getAttribute("data-category");
-                    if (filterValue === "all" || cardCategory === filterValue) {
+                    const cardCategory = card.getAttribute("data-category") || "";
+                    const categories = cardCategory.split(" ");
+                    if (filterValue === "all" || categories.includes(filterValue)) {
                         card.classList.remove("is-hidden");
                         card.style.opacity = "0";
                         card.style.transform = "translateY(15px)";

@@ -850,6 +850,265 @@ header {
     color: var(--accent-cyan);
 }
 
+/* --- Modern Engineering Stack Section --- */
+.engineering-section {
+    padding-top: 80px;
+}
+
+.engineering-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    margin-bottom: 40px;
+}
+
+.eng-card {
+    padding: 30px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.eng-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.eng-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.eng-card:hover::before {
+    opacity: 1;
+}
+
+.eng-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.eng-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.eng-icon-badge.color-cyan {
+    background: rgba(0, 212, 255, 0.12);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--accent-cyan);
+}
+
+.eng-icon-badge.color-blue {
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+}
+
+.eng-icon-badge.color-purple {
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #a78bfa;
+}
+
+.eng-icon-badge.color-green {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+}
+
+.eng-pillar-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-cyan);
+    margin-bottom: 3px;
+}
+
+.eng-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.eng-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.eng-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.eng-bullets li {
+    font-size: 0.84rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
+}
+
+.eng-bullets li i {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.eng-bullets li strong {
+    color: #ffffff;
+}
+
+.eng-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.eng-tech-pills span {
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+}
+
+/* Featured Application Showcase Banner */
+.eng-featured-banner {
+    border-radius: 24px;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    background: linear-gradient(135deg, rgba(11, 15, 25, 0.85) 0%, rgba(16, 24, 40, 0.75) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.eng-featured-banner::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 70%);
+    top: -100px;
+    right: -50px;
+    pointer-events: none;
+}
+
+.eng-featured-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.eng-featured-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.eng-featured-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+
+.eng-featured-desc strong {
+    color: #ffffff;
+}
+
+.eng-featured-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.eng-featured-media {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 260px;
+}
+
+.eng-featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.eng-featured-banner:hover .eng-featured-img {
+    transform: scale(1.03);
+}
+
+@media (max-width: 992px) {
+    .engineering-grid {
+        grid-template-columns: 1fr;
+    }
+    .eng-featured-banner {
+        grid-template-columns: 1fr;
+    }
+    .eng-featured-media {
+        max-height: 220px;
+    }
+}
+
 /* --- Portfolio Category Filter Bar --- */
 .portfolio-filter-bar {
     display: flex;
